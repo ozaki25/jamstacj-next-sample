@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { getItems } from 'api/QiitaApi'
 
 function Items({ items }) {
@@ -6,7 +7,11 @@ function Items({ items }) {
       <h1>Hello</h1>
       <ul>
         {items.map((item) => (
-          <li key={item.id}>{item.title}</li>
+          <li key={item.id}>
+            <Link href={`/items/${item.id}`}>
+              <a>{item.title}</a>
+            </Link>
+          </li>
         ))}
       </ul>
     </div>
