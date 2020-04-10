@@ -1,4 +1,4 @@
-import fetch from 'node-fetch'
+import { getItems } from 'api/QiitaApi'
 
 function Items({ items }) {
   return (
@@ -16,8 +16,7 @@ function Items({ items }) {
 export default Items
 
 export async function getStaticProps() {
-  const res = await fetch('https://qiita.com/api/v2/items')
-  const data = await res.json()
+  const data = await getItems()
   const items = data.map((item) => ({ id: item.id, title: item.title }))
   return {
     props: { items },
