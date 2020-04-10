@@ -1,10 +1,6 @@
-function Items() {
-  const items = [
-    { id: 1, title: 'サンプル1' },
-    { id: 2, title: 'サンプル2' },
-    { id: 3, title: 'サンプル3' },
-  ]
+import fetch from 'node-fetch'
 
+function Items({ items }) {
   return (
     <div className="container">
       <h1>Hello</h1>
@@ -18,3 +14,12 @@ function Items() {
 }
 
 export default Items
+
+export async function getStaticProps() {
+  const res = await fetch('https://qiita.com/api/v2/items')
+  const data = await res.json()
+  const items = data.map((item) => ({ id: item.id, title: item.title }))
+  return {
+    props: { items },
+  }
+}
