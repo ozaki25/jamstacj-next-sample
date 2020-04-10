@@ -8,7 +8,7 @@ function Items({ items }) {
       <ul>
         {items.map((item) => (
           <li key={item.id}>
-            <Link href={`/items/${item.id}`}>
+            <Link href="/items/[id]" as={`/items/${item.id}`}>
               <a>{item.title}</a>
             </Link>
           </li>
