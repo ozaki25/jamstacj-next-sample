@@ -21,8 +21,8 @@ function Items({ items }) {
 export default Items
 
 export async function getStaticProps() {
-  const data = await getItems()
-  const items = data.map((item) => ({ id: item.id, title: item.title }))
+  const { contents } = await getItems()
+  const items = contents.map((item) => ({ id: item.id, title: item.title }))
   return {
     props: { items },
   }
