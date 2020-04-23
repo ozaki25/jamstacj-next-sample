@@ -5,7 +5,7 @@ function Item({ item }) {
   return (
     <Container>
       <h2>{item.title}</h2>
-      <pre dangerouslySetInnerHTML={{ __html: item.body }}></pre>
+      <div dangerouslySetInnerHTML={{ __html: item.body }}></div>
     </Container>
   )
 }
