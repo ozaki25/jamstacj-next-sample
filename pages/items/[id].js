@@ -4,7 +4,8 @@ import { Container } from 'react-bootstrap'
 function Item({ item }) {
   return (
     <Container>
-      <h2>{item.title}</h2>
+      <h1>{item.title}</h1>
+      <hr />
       <div dangerouslySetInnerHTML={{ __html: item.body }}></div>
     </Container>
   )
