@@ -1,10 +1,20 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
-import { ZEITUIProvider, CSSBaseline } from '@zeit-ui/react'
+import { CSSBaseline } from '@zeit-ui/react'
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx)
-    return { ...initialProps }
+    const styles = CSSBaseline.flush()
+
+    return {
+      ...initialProps,
+      styles: (
+        <>
+          {initialProps.styles}
+          {styles}
+        </>
+      ),
+    }
   }
 
   render() {
@@ -12,10 +22,7 @@ class MyDocument extends Document {
       <Html>
         <Head />
         <body>
-          <ZEITUIProvider>
-            <CSSBaseline />
-            <Main />
-          </ZEITUIProvider>
+          <Main />
           <NextScript />
         </body>
       </Html>
