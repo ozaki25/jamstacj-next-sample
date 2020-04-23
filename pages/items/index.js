@@ -8,11 +8,9 @@ function Items({ items }) {
       <h1>Hello</h1>
       <ListGroup>
         {items.map((item) => (
-          <ListGroupItem key={item.id}>
-            <Link href="/items/[id]" as={`/items/${item.id}`}>
-              <a>{item.title}</a>
-            </Link>
-          </ListGroupItem>
+          <Link key={item.id} href="/items/[id]" as={`/items/${item.id}`}>
+            <ListGroupItem action>{item.title}</ListGroupItem>
+          </Link>
         ))}
       </ListGroup>
     </Container>
