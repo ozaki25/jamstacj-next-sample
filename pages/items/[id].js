@@ -1,11 +1,12 @@
 import { getItems, getItem } from 'api/QiitaApi'
+import { Container } from 'react-bootstrap'
 
 function Item({ item }) {
   return (
-    <div>
+    <Container>
       <h2>{item.title}</h2>
       <pre dangerouslySetInnerHTML={{ __html: item.body }}></pre>
-    </div>
+    </Container>
   )
 }
 
