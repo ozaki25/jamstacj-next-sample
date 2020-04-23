@@ -1,20 +1,21 @@
 import Link from 'next/link'
+import { Container, ListGroup, ListGroupItem } from 'react-bootstrap'
 import { getItems } from 'api/QiitaApi'
 
 function Items({ items }) {
   return (
-    <div className="container">
+    <Container>
       <h1>Hello</h1>
-      <ul>
+      <ListGroup>
         {items.map((item) => (
-          <li key={item.id}>
+          <ListGroupItem key={item.id}>
             <Link href="/items/[id]" as={`/items/${item.id}`}>
               <a>{item.title}</a>
             </Link>
-          </li>
+          </ListGroupItem>
         ))}
-      </ul>
-    </div>
+      </ListGroup>
+    </Container>
   )
 }
 
