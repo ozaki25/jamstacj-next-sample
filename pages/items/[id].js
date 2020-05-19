@@ -14,13 +14,13 @@ function Item({ item }) {
 export default Item
 
 export async function getStaticPaths() {
-  const { contents } = await getItems()
-  const paths = contents.map((item) => `/items/${item.id}`)
+  const data = await getItems()
+  const paths = data.map((item) => `/items/${item.id}`)
   return { paths, fallback: false }
 }
 
 export async function getStaticProps({ params }) {
   const data = await getItem({ id: params.id })
-  const item = { id: data.id, title: data.title, body: data.body }
+  const item = { id: data.id, title: data.title, body: data.rendered_body }
   return { props: { item } }
 }

@@ -1,17 +1,18 @@
 import fetch from 'node-fetch'
 
-const apiUrl = process.env.API_URL
+const { API_URL, API_KEY } = process.env
 
 const headers = {
-  'X-API-KEY': process.env.API_KEY,
+  // 'X-API-KEY': API_KEY,
+  Authorization: `Bearer ${API_KEY}`,
 }
 
 export async function getItems() {
-  const res = await fetch(`${apiUrl}/items`, { headers })
+  const res = await fetch(`${API_URL}/items`, { headers })
   return res.json()
 }
 
 export async function getItem({ id }) {
-  const res = await fetch(`${apiUrl}/items/${id}`, { headers })
+  const res = await fetch(`${API_URL}/items/${id}`, { headers })
   return res.json()
 }
