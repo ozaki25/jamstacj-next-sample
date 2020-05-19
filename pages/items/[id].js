@@ -26,6 +26,6 @@ export async function getStaticProps({ params }) {
   const item = { id: data.id, title: data.title, body: data.rendered_body }
   return {
     props: { item, date: String(new Date()) },
-    unstable_revalidate: 1,
+    unstable_revalidate: 60 * 60 * 24,
   }
 }
