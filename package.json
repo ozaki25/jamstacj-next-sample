@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "bootstrap": "^4.4.1",
-    "next": "9.3.4",
+    "next": "^9.4.1",
     "node-fetch": "^2.6.0",
     "react": "16.13.1",
     "react-bootstrap": "^1.0.1",
